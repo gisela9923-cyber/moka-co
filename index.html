@@ -1,74 +1,580 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>moKa.co | Ropa nueva y seminueva</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>moKa.co | Ropa nueva y seminueva</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f6f2ed;
+color:#191716
+}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f4ef;
-      color: #171717;
-    }
+header{
+background:#111;
+color:#fff;
+height:72px;
+padding:0 6%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+position:sticky;
+top:0;
+z-index:20
+}
 
-    /* ENCABEZADO */
-    header {
-      background: #0d0d0d;
-      color: white;
-      padding: 18px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+.logo{
+font-family:Georgia,serif;
+font-size:32px;
+font-weight:bold
+}
 
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 34px;
-      font-weight: bold;
-      letter-spacing: -2px;
-    }
+nav{
+display:flex;
+gap:25px
+}
 
-    nav {
-      display: flex;
-      gap: 28px;
-    }
+nav a{
+font-size:14px
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-    }
+.cart{
+background:#76513a;
+padding:10px 15px;
+border-radius:20px
+}
 
-    .cart {
-      background: #8b5e3c;
-      border-radius: 20px;
-      padding: 9px 15px;
-    }
+.hero{
+min-height:500px;
+background:linear-gradient(135deg,#151515,#4c3628);
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:45px 20px
+}
 
-    /* HERO */
-    .hero {
-      min-height: 470px;
-      background:
-        linear-gradient(rgba(0,0,0,.50), rgba(0,0,0,.50)),
-        linear-gradient(120deg, #151515, #56351f);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-    }
+.hero h1{
+font-family:Georgia,serif;
+font-size:clamp(55px,10vw,100px);
+margin:0
+}
 
-    .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(48px, 9vw, 90px);
+.hero p{
+letter-spacing:6px;
+font-size:12px;
+margin:10px 0 32px
+}
+
+.hero button{
+background:#fff;
+border:0;
+padding:15px 28px;
+font-weight:bold
+}
+
+.categories{
+background:#fff;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+padding:25px 6%
+}
+
+.category{
+padding:22px 10px;
+border:1px solid #ded6cf;
+text-align:center;
+font-weight:bold
+}
+
+.section{
+padding:55px 6%
+}
+
+.heading{
+text-align:center;
+margin-bottom:35px
+}
+
+.heading h2{
+font-family:Georgia,serif;
+font-size:36px;
+margin:0
+}
+
+.heading p{
+color:#777
+}
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px
+}
+
+.product{
+background:#fff;
+box-shadow:0 5px 20px #00000010
+}
+
+.photo{
+height:310px;
+background:linear-gradient(145deg,#d3bda8,#76543d);
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+position:relative;
+font-size:13px
+}
+
+.badge{
+position:absolute;
+top:12px;
+left:12px;
+background:#111;
+padding:7px 10px;
+font-size:10px
+}
+
+.info{padding:20px}
+
+.info h3{
+font-family:Georgia,serif;
+font-size:21px;
+margin:0 0 6px
+}
+
+.condition{
+color:#806247;
+font-size:12px
+}
+
+.price{
+font-weight:bold;
+font-size:22px;
+margin:13px 0
+}
+
+.old{
+font-size:13px;
+text-decoration:line-through;
+color:#999
+}
+
+.actions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:7px
+}
+
+.actions button{
+border:0;
+padding:12px 5px;
+font-weight:bold
+}
+
+.buy{
+background:#111;
+color:#fff
+}
+
+.reserve{
+background:#e9ddd1;
+color:#38271e
+}
+
+.reserve-section{
+background:#181512;
+color:#fff;
+padding:55px 8%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:45px;
+align-items:center
+}
+
+.reserve-section h2{
+font-family:Georgia,serif;
+font-size:42px;
+margin:0 0 15px
+}
+
+.reserve-box{
+background:#29231f;
+padding:22px
+}
+
+.reserve-box div{
+padding:12px;
+border-bottom:1px solid #4a4038
+}
+
+.lots{background:#e9ded2}
+
+.lot{
+background:#111;
+color:#fff;
+padding:28px
+}
+
+.lot h3{
+font-family:Georgia,serif;
+font-size:24px;
+margin-top:0
+}
+
+.lot-price{
+font-size:27px;
+font-weight:bold;
+margin:20px 0
+}
+
+.lot button{
+border:0;
+background:#e8d8c8;
+padding:12px 20px;
+font-weight:bold
+}
+
+.promo{
+background:#76513a;
+color:#fff;
+margin:0 6% 55px;
+padding:40px;
+text-align:center
+}
+
+.admin{
+background:#fff;
+margin:0 6% 55px;
+padding:30px
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px
+}
+
+.stat{
+background:#f0eae4;
+padding:20px
+}
+
+.stat strong{
+display:block;
+font-size:25px;
+margin-top:8px
+}
+
+footer{
+background:#090909;
+color:#fff;
+text-align:center;
+padding:45px 20px
+}
+
+.footer-logo{
+font-family:Georgia,serif;
+font-size:40px;
+font-weight:bold
+}
+
+@media(max-width:700px){
+nav{display:none}
+.categories{grid-template-columns:1fr 1fr}
+.products{grid-template-columns:1fr 1fr}
+.reserve-section{grid-template-columns:1fr}
+.stats{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:450px){
+.products{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+
+<body>
+<header>
+<div class="logo">moKa.co</div>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#individual">Individual</a>
+<a href="#lotes">Lotes</a>
+<a href="#ofertas">Ofertas</a>
+</nav>
+
+<div class="cart">
+🛒 <span id="cartCount">0</span>
+</div>
+</header>
+
+<section class="hero" id="inicio">
+<div>
+<h1>moKa.co</h1>
+<p>ROPA NUEVA Y SEMINUEVA</p>
+
+<button onclick="location.href='#individual'">
+VER COLECCIÓN
+</button>
+</div>
+</section>
+
+<section class="categories">
+<a class="category" href="#individual">✨ Nuevos ingresos</a>
+<a class="category" href="#individual">👗 Compra individual</a>
+<a class="category" href="#lotes">📦 Lotes</a>
+<a class="category" href="#ofertas">🏷️ Ofertas</a>
+</section>
+
+<section class="section" id="individual">
+
+<div class="heading">
+<h2>Recién llegados</h2>
+<p>Encuentra prendas únicas antes de que se agoten.</p>
+</div>
+
+<div class="products">
+
+<div class="product">
+<div class="photo">
+<span class="badge">NUEVA</span>
+FOTO DE PRENDA
+</div>
+
+<div class="info">
+<h3>Vestido negro</h3>
+<div class="condition">Nueva · Talla M</div>
+<div class="price">$349 MXN</div>
+
+<div class="actions">
+<button class="buy" onclick="addCart('Vestido negro')">
+COMPRAR
+</button>
+
+<button class="reserve" onclick="reserve('Vestido negro')">
+APARTAR
+</button>
+</div>
+</div>
+</div>
+
+<div class="product">
+<div class="photo">
+<span class="badge">SEMINUEVA</span>
+FOTO DE PRENDA
+</div>
+
+<div class="info">
+<h3>Blusa satinada</h3>
+
+<div class="condition">
+Seminueva · Excelente estado · Talla S
+</div>
+
+<div class="price">
+$199 MXN <span class="old">$279</span>
+</div>
+
+<div class="actions">
+<button class="buy" onclick="addCart('Blusa satinada')">
+COMPRAR
+</button>
+
+<button class="reserve" onclick="reserve('Blusa satinada')">
+APARTAR
+</button>
+</div>
+</div>
+</div>
+
+<div class="product">
+<div class="photo">
+<span class="badge">NUEVA</span>
+FOTO DE PRENDA
+</div>
+
+<div class="info">
+<h3>Pantalón beige</h3>
+<div class="condition">Nueva sin etiqueta · Talla M</div>
+<div class="price">$299 MXN</div>
+
+<div class="actions">
+<button class="buy" onclick="addCart('Pantalón beige')">
+COMPRAR
+</button>
+
+<button class="reserve" onclick="reserve('Pantalón beige')">
+APARTAR
+</button>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="reserve-section">
+<div>
+<h2>¿Te gustó? Apártalo.</h2>
+
+<p>
+Realiza un anticipo para reservar tu prenda
+y liquida el resto dentro del plazo establecido.
+</p>
+</div>
+
+<div class="reserve-box">
+<div>🤎 Realiza tu anticipo</div>
+<div>🔒 Reservamos tu prenda</div>
+<div>📅 Consulta tu fecha límite</div>
+<div>✓ Liquida el resto</div>
+<div>📦 Recibe tu pedido</div>
+</div>
+</section>
+<section class="section lots" id="lotes">
+ 
+<div class="heading">
+<h2>Compra por lote</h2>
+<p>Más prendas, mejor precio.</p>
+</div>
+ 
+<div class="products">
+ 
+<div class="lot">
+<h3>Lote MOKA #001</h3>
+<p>10 prendas · Tallas S–M</p>
+<p>Ropa nueva y seminueva</p>
+<div class="lot-price">$1,299 MXN</div>
+<button onclick="addCart('Lote MOKA #001')">COMPRAR LOTE</button>
+</div>
+ 
+<div class="lot">
+<h3>Lote MOKA #002</h3>
+<p>15 prendas · Tallas M–L</p>
+<p>Ideal para reventa</p>
+<div class="lot-price">$1,799 MXN</div>
+<button onclick="addCart('Lote MOKA #002')">COMPRAR LOTE</button>
+</div>
+ 
+<div class="lot">
+<h3>Lote sorpresa</h3>
+<p>20 prendas seleccionadas</p>
+<p>Precio especial</p>
+<div class="lot-price">$2,099 MXN</div>
+<button onclick="addCart('Lote sorpresa')">COMPRAR LOTE</button>
+</div>
+ 
+</div>
+</section>
+ 
+<section class="section" id="ofertas">
+ 
+<div class="heading">
+<h2>Ofertas moKa.co</h2>
+<p>Precios especiales en prendas seleccionadas.</p>
+</div>
+ 
+<div class="promo">
+<h2>10% de descuento</h2>
+<p>Utiliza el código en tu próxima compra.</p>
+<strong>MOKA10</strong>
+</div>
+ 
+</section>
+ 
+<section class="admin">
+ 
+<h2>Panel moKa.co</h2>
+ 
+<p>
+Más adelante esta sección será privada y solamente tú podrás verla.
+</p>
+ 
+<div class="stats">
+ 
+<div class="stat">
+Inventario
+<strong>0</strong>
+</div>
+ 
+<div class="stat">
+Ventas
+<strong>$0</strong>
+</div>
+ 
+<div class="stat">
+Apartados
+<strong id="reservedCount">0</strong>
+</div>
+ 
+<div class="stat">
+Carrito
+<strong id="adminCart">0</strong>
+</div>
+ 
+</div>
+</section>
+ 
+<footer>
+ 
+<div class="footer-logo">moKa.co</div>
+ 
+<p>ROPA NUEVA Y SEMINUEVA</p>
+ 
+<p>
+Individual · Lotes · Apartados · Ofertas
+</p>
+ 
+</footer>
+ 
+<script>
+let cart=0;
+let reserved=0;
+ 
+function addCart(product){
+cart++;
+ 
+document.getElementById("cartCount").textContent=cart;
+document.getElementById("adminCart").textContent=cart;
+ 
+alert(product+" se agregó al carrito.");
+}
+ 
+function reserve(product){
+reserved++;
+ 
+document.getElementById("reservedCount").textContent=reserved;
+ 
+alert(
+"APARTADO MOKA\n\n"+
+"Prenda: "+product+
+"\n\nPróximamente agregaremos aquí el anticipo y la fecha límite."
+);
+}
+</script>
+ 
+</body>
+</html>
+🔴 Antes de guardar
+
+Ve hasta abajo.
+
+Las últimas 3 líneas deben decir:
+
+HTML
+</script>
+ 
+</body>
+</html>
